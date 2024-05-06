@@ -1,0 +1,392 @@
+/* Bước 1 css */
+.header {
+    height: var(--header--height);
+    /* chuyển màu từ từ*/
+    background-image: linear-gradient(#fe6433, #f53e2d);
+}
+
+/* End bước 1 */
+
+/* Bước 2 */
+.header__navbar {
+    display: flex;
+    justify-content: space-between;
+}
+.header__navbar-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 4px 0 0 0;
+}
+.header__navbar-item {
+    margin: 0 8px;
+    position: relative;
+}
+/* End Bước 2 css */
+
+
+.header__navbar-item--has-notify:hover .header__notifi {
+    display: block;
+}
+
+/* .header__navbar-display:hover .header__QR{
+display: block;
+} */
+.header__navbar-item--separate:hover .header__QR {
+    display: block;
+}
+
+/* BƯỚC 3 */
+.header__navbar-item,
+.header__navbar-itemLink {
+    /* nằm trên cùng 1 hàng */
+    display: inline-block;
+    font-size: 1.5rem;
+    color: var(--white-color);
+    /* Bỏ đi gạch chân của thẻ a */
+    text-decoration: none;
+    font-weight: 100;
+}
+/* End BƯỚC 3  */
+
+/* BƯỚC 5 */
+.header__navbar-item:hover,
+.header__navbar-iconLink:hover,
+.header__navbar-itemLink:hover {
+    cursor: pointer;
+    color: rgb(255, 255, 255, 0.7);
+}
+.header__navbar-iconLink{
+    color: var(--white-color);
+}
+/* END BƯỚC 5 */
+
+
+/* Bước 4:  */
+.header__navbar-item--strong {
+    font-weight: 500;
+}
+
+/* Tạo ra dấu gạch hoyyyy */
+.header__navbar-item--separate::after {
+    content: "";
+    display: block;
+    position: absolute;
+    border-left: 2px solid #FB9086;
+    height: 12px;
+    right: -10px;
+    top: 50%;
+    transform: translateY(-50%)
+}
+
+/* end bước 4 */
+
+/* Bước 6 */
+.header_navbar-icon {
+    font-size: 18px;
+    margin: 0 8px;
+
+}
+/* end bước 6 */
+
+/* Bước 7 */
+.header__navbar-tittle-no-pointer {
+    cursor: text;
+    color:var(--white-color);
+    font-style: normal;
+}
+/* end bước 7 */
+
+/* ---------------------------------------------------------------------------------------------------------------- */
+
+/* Header QR-Code */
+
+/* Bước 1 */
+.header__QR {
+    background-color: var(--white-color);
+    width: 186px;
+    position: absolute;
+    left: 0;
+    top: 115%;
+    padding: 0 8px;
+    border-radius: 2px;
+    display: none;
+    animation: fadeIn ease-in 1s;
+}
+
+.header__QR-img {
+    width: 100%;
+    padding-top: 10%;
+}
+
+.header_QR-app {
+    display: flex;
+}
+
+.header__QR-download {
+    height: 15px;
+}
+
+.header_QR-link {
+    margin-top: 15px;
+    margin-left: 12px;
+    margin-right: 8px;
+}
+
+/* ----------------------------------Header notification: CSSS PHẦN THÔNG BÁO ----------------------------------
+-----------------------------------------------------------------------------------------------------------------*/
+.header__notifi {
+    position: absolute;
+    top: 115%;
+    right: 0;
+    width: 400px;
+    background-color: white;
+    border: 2px solid #D3D3D3;
+    transform-origin: top right;
+    animation: headerNotifyGrow ease-in 0.2s;
+    display: none;
+}
+
+@keyframes headerNotifyGrow {
+    from {
+        opacity: 0;
+        transform: scale(0);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.header__notifi::before {
+    content: "";
+    border: 20px solid;
+    border-color: transparent transparent white transparent;
+    position: absolute;
+    right: 10px;
+    top: -30px;
+
+}
+
+/* Làm cầu nối để khi di vào chính quả chuông vẫn ấn xuống được */
+.header__notifi::after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 120px;
+    right: 12px;
+    top: -16px;
+    height: 20px;
+    /* background-color: aqua; */
+}
+
+.header__notify-header {
+    height: 40px;
+    background-color: var(--white-color);
+}
+
+.header__notify-header h3 {
+    font-size: 13px;
+    color: gray;
+    margin: 0 0 5 12px;
+}
+
+.header__notify-list {
+    padding-left: 0;
+}
+
+.header__notify-item {
+    display: flex;
+}
+
+.header__notify-item:hover {
+    display: flex;
+    background-color: pink;
+}
+
+.header__notify-item--viewed {
+    background-color: rgb(238, 75, 43, 0.1);
+}
+
+.header__notify-link {
+    display: flex;
+    padding: 12px;
+    text-decoration: none;
+
+    width: 100%;
+}
+
+.header__notify-img {
+    width: 48px;
+}
+
+.header__notify-info {
+    margin-left: 12px;
+}
+
+.header__notify-name {
+    display: block;
+    font-size: 1.4rem;
+    line-height: 1.2rem;
+    color: var(--black-color);
+}
+
+.header__notify-decript {
+    display: block;
+    font-size: 1.2rem;
+    line-height: 1.6rem;
+    color: #FB9086;
+    padding-top: 10px;
+}
+
+.header__notify-footer {
+    text-align: center;
+}
+
+.header__notify-footer-btn {
+    text-decoration: none;
+    color: var(--text-color);
+    padding: 8 16;
+    margin: auto;
+    text-align: center;
+}
+
+/* ---------------------CSS FORM ĐĂNG KÍ----------------------------------------- ------------------------
+---------------------------------------------------------------------------------------------------------*/
+.auth_from {
+    width: 500px;
+    background-color: var(--white-color);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.auth-form__container {
+    padding: 0 32px;
+
+}
+
+.auth-form__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 12px;
+    margin-top: 10px;
+}
+
+/* css cho ông đăng kí */
+.autho-from__heading {
+    font-size: 2.2rem;
+    font-weight: 400;
+    color: var(--text-color);
+}
+
+.auth-form__switch-btn {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    font-weight: 400;
+    cursor: pointer;
+}
+
+.auth-form__form {}
+
+.auth-form__input {
+    width: 100%;
+    height: 40px;
+    margin-top: 25px;
+    padding: 0 12px;
+    font-size: 1.4rem;
+    border: 1px solid black;
+    border-radius: 3px;
+}
+
+.auth-form__input:focus {
+    border-color: #777;
+}
+
+.auth-form__aside {
+    margin-top: 32px;
+}
+
+.auth-form__policy-text {
+    font-size: 12px;
+    line-height: 1.8rem;
+    /* margin-top: 1.5rem; */
+    text-align: center;
+    padding: 0 56px;
+}
+
+.auth-form__text-link {
+    color: #EE4D2D;
+    text-decoration: none;
+}
+
+.auth-form__controls {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.auth-form__controls-back {
+    margin-right: 8px;
+}
+
+.auth-form__socials {
+    display: flex;
+    background-color: #F5F5F5;
+    padding: 12px 36px;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.auth-form__socials-icon {
+    font-size: 1.8rem;
+}
+
+.auth-form__socials--fb {
+    background-color: #3A5A98;
+    color: var(--white-color);
+    padding-right: 2px;
+}
+
+.auth-form__socials--fb .auth-form__socials-icon {
+    color: var(--white-color)
+}
+
+.auth-form__socials-title {
+    margin: 0 36px;
+}
+
+.auth-form__socials--google {
+    background-color: var(--white-color);
+}
+
+/* ----------------------------------------Thêm 1 vài css cho LOGIN-------------------- */
+.auth-form__help {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.auth-form__help-link {
+    text-decoration: none;
+    font-size: 1.4rem;
+    padding-bottom: 90px;
+}
+
+.auth-form__help-separate {
+    display: block;
+    height: 15px;
+    margin: 0 15px;
+    border: 1px solid var(--border-color);
+}
+
+/* --------------------------------------------CSSS CHO PHẦN SEARCH------------------- */
+.header-with-search {
+    height: var(--header-with-search-height);
+}
+
+.header__logo {
+    width: 200px;
+}
+
+.header__logo-img {
+    width: 150px;
+}
